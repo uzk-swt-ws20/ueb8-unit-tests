@@ -4,9 +4,12 @@ import java.util.*;
 
 /**
  * Simple LinkedList-Implementation, die als Komponente im Beispielprogramm verwendet wird.
- * Mir ist klar dass es eine LinkedList in der Standardbibliothek gibt, und ich erwarte auch nicht dass
- * Sie diesen Code komplett nachvollziehen. Lesen Sie sich einfach die Dokumentation des List Interfaces durch.
- * @param <T>
+ * Mir ist klar dass es eine {@link java.util.LinkedList} in der Standardbibliothek gibt,
+ * und ich erwarte auch nicht dass Sie diesen Code in der Übungszeit komplett nachvollziehen.
+ * Lesen Sie sich einfach die Dokumentation des {@link List} Interfaces durch, um zu verstehen
+ * was das Ergebnis jeder Operation sein sollte.
+ *
+ * @param <T> Typ der Objekte, die in der Liste gespeichert werden sollen
  */
 public class LinkedList<T> implements List<T> {
     public int size() {
@@ -56,6 +59,15 @@ public class LinkedList<T> implements List<T> {
         return a;
     }
 
+    /**
+     * Platziert die übergebene Kette von {@link ListNode ListNodes} nach dem angegebenen {@code cursor}.
+     *
+     * @param cursor Der Knoten, hinter dem die Kette eingefügt werden soll. Ist dies {@code null},
+     *               wird die Kette am Anfang der Liste eingefügt
+     * @param chainStart Start der Kette
+     * @param chainEnd Ende der Kette
+     * @return {@code true}: es sollte nicht möglich sein, dass diese Operation scheitert.
+     */
     private boolean insertChain(ListNode<T> cursor, ListNode<T> chainStart, ListNode<T> chainEnd) {
         ListNode<T> next = head;
         if(cursor != null)
@@ -364,6 +376,12 @@ public class LinkedList<T> implements List<T> {
     private ListNode<T> head;
     private ListNode<T> tail;
 
+    /**
+     * Einzelner Knoten der LinkedList. Die Funktionsweise einer LinkedList
+     * wird in "Grundzüge der Informatik" erläutert.
+     *
+     * @param <T> Typ des Objekts, das in diesem Knoten gespeichert wird.
+     */
     private static class ListNode<T> {
         private T item;
         private ListNode<T> prev;
