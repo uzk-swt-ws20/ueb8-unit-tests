@@ -56,7 +56,8 @@ public class ChemCipher {
      * müssen einige Segmente in Klartext verbleiben; ein Kürzester-Weg-Algorithmus
      * maximiert die Amzahl Umwandlungen im Ergebnis.
      * <br><br>
-     * <b>Beispiel:</b> <code>"Planeten" -> "P La Ne Te N" -> {15,57,10,52,7}</code>
+     * <b>Beispiel:</b> <code>"Planeten" -> "P La Ne Te N" -> {15,57,10,52,7}, 
+     *                        "Bethesda" -> "Be Th Es DA" -> {4,90,99,"DA"}</code>
      *
      * @param in Der String der ungewandelt werden soll
      * @return {@code (String|Integer)...}: Abwechselnd entweder ein {@link Integer} (für eine Atomzahl)
