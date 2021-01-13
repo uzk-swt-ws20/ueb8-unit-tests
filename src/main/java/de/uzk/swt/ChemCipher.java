@@ -1,6 +1,7 @@
 package de.uzk.swt;
 
 import java.util.*;
+import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 /**
@@ -76,13 +77,13 @@ public class ChemCipher {
                 dist[i + 1] = dist[i];
                 prev[i + 1] = i;
             }
-            if(periodicTable.contains(in.substring(i,i+1)) && dist[i] + 1 > dist[i+1]) {
-                dist[i + 1] = dist[i] + 1;
-                prev[i + 1] = i;
-            }
-            if(periodicTable.contains(in.substring(i,i+2)) && dist[i] + 2 > dist[i+2]) {
-                dist[i + 2] = dist[i] + 2;
-                prev[i + 2] = i;
+            for(int j = 1; j <= 2; j++) {
+                if(i + j > in.length())
+                    break;
+                if (periodicTable.contains(in.substring(i, i + j)) && dist[i] + j > dist[i + j]) {
+                    dist[i + j] = dist[i] + j;
+                    prev[i + j] = i;
+                }
             }
         }
 
