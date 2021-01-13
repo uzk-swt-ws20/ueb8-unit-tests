@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Stream;
 
@@ -51,7 +52,9 @@ class ChemCipherTest {
     @ParameterizedTest
     @MethodSource("de.uzk.swt.ChemCipherTest#makeRandomStrings")
     void testConsistency(String input) {
-        assertEquals(input.toUpperCase(), unit.chem2str(unit.str2chem(input)));
+        Object[] result = unit.str2chem(input);
+        System.out.println("Input: "+input+"\nEncoding: "+ Arrays.toString(result));
+        assertEquals(input.toUpperCase(), unit.chem2str(result));
     }
 
 }
