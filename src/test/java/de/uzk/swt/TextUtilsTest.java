@@ -54,4 +54,9 @@ class TextUtilsTest {
     void isPalindrome(String input, boolean output) {
         assertEquals(output, unit.isPalindrome(input));
     }
+    
+    @Test
+    void isPalindrome_throwsOnNull() {
+    	assertThrows(NullPointerException.class, () -> unit.isPalindrome(null));
+    }
 }
